@@ -1,0 +1,6 @@
+<h1 class="title">Workshops</h1>
+<ul class="workshop-list">
+    {{#each model as |workshop|}}
+    <li>{{ workshop.name }} - {{ workshop.cnpj }}</li>
+    {{/each}}
+</ul>
