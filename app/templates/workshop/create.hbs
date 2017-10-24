@@ -1,1 +1,6 @@
-{{outlet}}
+<h1>Criar Oficina</h1>
+
+{{input id="nome-input" value=model.name}}
+{{input id="cnpj-input" value=model.cnpj}}
+
+<button id="create-button" {{action "create"}}></button>
