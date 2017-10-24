@@ -4,3 +4,7 @@
     <li>{{ workshop.name }} - {{ workshop.cnpj }}</li>
     {{/each}}
 </ul>
+
+{{#link-to 'workshop.create'}}
+    <button id="new-workshop">New Workshop</button>
+{{/link-to}}
