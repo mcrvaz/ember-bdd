@@ -1,6 +1,8 @@
 <h1>Criar Oficina</h1>
 
-{{input id="nome-input" value=model.name}}
-{{input id="cnpj-input" value=model.cnpj}}
+<div class="layout layout-sm-column">
+    {{paper-input id="nome-input" class="flex-30" label="Nome" value=model.name onChange=(action (mut model.name))}}
+    {{paper-input id="cnpj-input" class="flex-30" label="CNPJ" value=model.cnpj onChange=(action (mut model.cnpj))}}
+</div>
 
-<button id="create-button" {{action "create"}}></button>
+<button id="create-button" {{action "create"}}>Salvar</button>
