@@ -4,7 +4,10 @@ export default Factory.extend({
     cnpj() {
         return faker.address.zipCode();
     },
-    name() {
+    tradeName() {
+        return faker.company.companyName();
+    },
+    companyName() {
         return faker.company.companyName();
     },
     address() {

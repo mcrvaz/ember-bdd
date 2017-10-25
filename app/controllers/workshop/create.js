@@ -17,7 +17,8 @@ export default Controller.extend({
                 }
             }).then(res => {
                 const model = this.get('model');
-                model.set('name', res['nome-fantasia']);
+                model.set('tradeName', res['nome-fantasia']);
+                model.set('companyName', res['razao-social']);
                 model.set('address', res['endereco']);
                 model.set('phone', res['telefone']);
                 model.set('email', res['email']);
