@@ -1,6 +1,7 @@
 import yadda from '../../helpers/yadda';
 
 export default function(assert) {
+
   function visitPage(page, next) {
     visit(page);
     andThen(() => {
