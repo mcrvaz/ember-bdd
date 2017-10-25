@@ -10,12 +10,12 @@ export default function(assert) {
     });
   }
 
-  function lookIntoList(listName, next) {
-    const list = find(`.${listName}-list`);
-    assert.ok(list.length);
-    this.ctx[listName] = list;
-    next();
-  }
+  // function lookIntoList(listName, next) {
+  //   const list = find(`.${listName}-list`);
+  //   assert.ok(list.length);
+  //   this.ctx[listName] = list;
+  //   andThen(() => next());
+  // }
 
   return yadda.localisation.English.library()
     .given('I visit the "$page" page', function(page, next) {
@@ -25,8 +25,15 @@ export default function(assert) {
       visitPage(page, next);
     })
 
+    .then('I should be on "$page" page', function(page, next) {
+      assert.equal(currentURL(), page);
+      next();
+    })
+
     .when('I fill the "$field" field with "$value"', function(field, value, next) {
-      fillIn(`#${field.toLowerCase()}-input`, value);
+      const selector = `#input-${field.toLowerCase()}`;
+      fillIn(selector, value);
+      triggerEvent(selector, 'blur');
       assert.ok(true, this.step);
       andThen(() => next());
     })
@@ -35,10 +42,10 @@ export default function(assert) {
       andThen(() => next());
     })
 
-    .when('I look into the "$listName" list', function(listName, next) {
-      lookIntoList(listName, next);
-    })
-    .then('I look into the "$listName" list', function(listName, next) {
-      lookIntoList(listName, next);
-    })
+    // .when('I look into the "$listName" list', function(listName, next) {
+    //   lookIntoList(listName, next);
+    // })
+    // .then('I look into the "$listName" list', function(listName, next) {
+    //   lookIntoList(listName, next);
+    // })
 }

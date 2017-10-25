@@ -1,8 +1,21 @@
 <h1>Criar Oficina</h1>
 
 <div class="layout layout-sm-column">
-    {{paper-input id="nome-input" class="flex-30" label="Nome" value=model.name onChange=(action (mut model.name))}}
-    {{paper-input id="cnpj-input" class="flex-30" label="CNPJ" value=model.cnpj onChange=(action (mut model.cnpj))}}
+    {{paper-input id="cnpj" class="flex-30" label="CNPJ"
+        value=model.cnpj onChange=(action (mut model.cnpj))
+        onBlur=(action "queryCNPJ" model.cnpj)}}
+    {{paper-input id="nome-fantasia" class="flex-30" label="Nome Fantasia"
+        value=model.name onChange=(action (mut model.name))}}
+</div>
+<div class="layout layout-sm-column">
+    {{paper-input id="endereco" class="flex-30" label="Endereço"
+        value=model.address onChange=(action (mut model.address))}}
+    {{paper-input id="telefone" class="flex-30" label="Telefone"
+        value=model.phone onChange=(action (mut model.phone))}}
+</div>
+<div class="layout layout-sm-column">
+    {{paper-input id="email" class="flex-30" label="E-mail"
+        value=model.email onChange=(action (mut model.email))}}
 </div>
 
 <div class="layout-row">

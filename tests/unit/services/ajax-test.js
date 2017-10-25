@@ -1,12 +1,12 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:workshop/create', 'Unit | Controller | workshop/create', {
+moduleFor('service:ajax', 'Unit | Service | ajax', {
   // Specify the other units that are required for this test.
-  needs: ['service:ajax']
+  // needs: ['service:foo']
 });
 
 // Replace this with your real tests.
 test('it exists', function(assert) {
-  let controller = this.subject();
-  assert.ok(controller);
+  let service = this.subject();
+  assert.ok(service);
 });

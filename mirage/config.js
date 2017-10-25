@@ -6,5 +6,15 @@ export default function() {
 
   this.get('/workshops');
   this.post('/workshops');
+  this.get('/consulta-cnpj', (/*schema, request*/) => {
+    // const cnpj = request.queryParams.cnpj;
+    return {
+      'razao-social': "Razão Teste",
+      'nome-fantasia': "Nome Teste",
+      'endereco': "Endereço Teste",
+      'telefone': "Telefone Teste",
+      'email': "Email Teste",
+    };
+  });
 
 }
