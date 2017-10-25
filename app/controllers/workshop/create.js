@@ -21,6 +21,9 @@ export default Controller.extend({
                 model.set('address', res['endereco']);
                 model.set('phone', res['telefone']);
                 model.set('email', res['email']);
+            })
+            .catch(() => {
+                //suppress ajax operation aborted
             });
         }
     }

@@ -33,9 +33,14 @@ export default function(assert) {
     .when('I fill the "$field" field with "$value"', function(field, value, next) {
       const selector = `#input-${field.toLowerCase()}`;
       fillIn(selector, value);
-      triggerEvent(selector, 'blur');
-      assert.ok(true, this.step);
-      andThen(() => next());
+      andThen(() => {
+        triggerEvent(selector, 'blur');
+        andThen(() => {
+          assert.ok(true, this.step);
+          // setTimeout(() => {next();}, 6000);
+          next();
+        });
+      });
     })
     .when('I click on the "$buttonName" button', function(buttonName, next) {
       click(`#${buttonName.toLowerCase()}-button`);
