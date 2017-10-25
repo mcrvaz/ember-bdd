@@ -8,6 +8,8 @@
     {{/each}}
 </ul>
 
-{{#link-to 'workshop.create'}}
-    <button id="new-workshop">New Workshop</button>
+{{#link-to "workshop.create"}}
+    {{#paper-button id="novo-button" primary="true" raised="true"}}
+        Nova Oficina
+    {{/paper-button}}
 {{/link-to}}

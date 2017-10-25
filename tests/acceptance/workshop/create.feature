@@ -17,3 +17,9 @@ Feature: create workshop
     | Nome          | CNPJ      |
     | Oficina Teste | 147852963 |
     ------------------------------------------------
+
+  Scenario: go back to the listing page
+
+    Given I visit the "/workshop/create" page
+    When I click on the "Back" button
+    Then I visit the "workshop" page

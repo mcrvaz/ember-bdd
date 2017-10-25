@@ -7,5 +7,5 @@ Feature: workshop listing
 
   Scenario: clicking on new workshop takes user to the workshop creation page
     Given I visit the "workshop" page
-    When I click on the New Workshop button
+    When I click on the "Novo" button
     Then I should be on "/workshop/create" page

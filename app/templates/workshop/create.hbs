@@ -5,4 +5,14 @@
     {{paper-input id="cnpj-input" class="flex-30" label="CNPJ" value=model.cnpj onChange=(action (mut model.cnpj))}}
 </div>
 
-<button id="create-button" {{action "create"}}>Salvar</button>
+<div class="layout-row">
+    {{#paper-button id="create-button" raised="true" primary="true" onClick=(action "create")}}
+        Salvar
+    {{/paper-button}}
+
+    {{#link-to "workshop"}}
+        {{#paper-button id="back-button" raised="true"}}
+            Voltar
+        {{/paper-button}}
+    {{/link-to}}
+</div>
