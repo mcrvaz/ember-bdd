@@ -3,6 +3,7 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
     ajax: service('ajax'),
+    disableChanges: false,
     actions: {
         create() {
             this.get('model')
@@ -22,6 +23,7 @@ export default Controller.extend({
                 model.set('address', res['endereco']);
                 model.set('phone', res['telefone']);
                 model.set('email', res['email']);
+                this.set('disableChanges', true);
             })
             .catch(() => {
                 //suppress ajax operation aborted

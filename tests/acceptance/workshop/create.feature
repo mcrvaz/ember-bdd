@@ -4,11 +4,13 @@ Feature: create workshop
 
     Given I visit the "/workshop/create" page
     When I fill the "CNPJ" field with "[CNPJ]"
-    Then I should see the "Razão Social" field filled
+    Then I should see the "Razao Social" field filled
     Then I should see the "Nome Fantasia" field filled
-    And I should see the "Endereço" field filled
+    And I should see the "Endereco" field filled
     And I should see the "Telefone" field filled
-    And I should see the "E-mail" field filled
+    And I should see the "Email" field filled
+    Then I should not be able to edit the "CNPJ" field
+    And I should not be able to edit the "Razao Social" field
     # When I click on the "Create" button
     # Then I visit the "workshop" page
     # Then I look into the "workshop" list

@@ -1,4 +1,5 @@
 import yadda from '../../helpers/yadda';
+import dashify from 'npm:dashify';
 
 export default function(assert) {
 
@@ -9,13 +10,6 @@ export default function(assert) {
       next();
     });
   }
-
-  // function lookIntoList(listName, next) {
-  //   const list = find(`.${listName}-list`);
-  //   assert.ok(list.length);
-  //   this.ctx[listName] = list;
-  //   andThen(() => next());
-  // }
 
   return yadda.localisation.English.library()
     .given('I visit the "$page" page', function(page, next) {
@@ -37,7 +31,6 @@ export default function(assert) {
         triggerEvent(selector, 'blur');
         andThen(() => {
           assert.ok(true, this.step);
-          // setTimeout(() => {next();}, 6000);
           next();
         });
       });
@@ -47,10 +40,20 @@ export default function(assert) {
       andThen(() => next());
     })
 
-    // .when('I look into the "$listName" list', function(listName, next) {
-    //   lookIntoList(listName, next);
-    // })
-    // .then('I look into the "$listName" list', function(listName, next) {
-    //   lookIntoList(listName, next);
-    // })
+    .then('I should see the "$fieldName" field filled', function(fieldName, next) {
+      assert.ok(
+        find(`#input-${dashify(fieldName)}`).val(),
+        `${fieldName} is not empty`
+      );
+      next();
+    })
+    .then('I should not be able to edit the "$fieldName" field', function(fieldName, next) {
+      assert.ok(
+        find(`#input-${dashify(fieldName)}`).prop('disabled'),
+        `${fieldName} is disabled`
+      );
+      next();
+    })
+
+
 }
