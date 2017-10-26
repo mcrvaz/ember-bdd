@@ -47,10 +47,25 @@ export default function(assert) {
       );
       next();
     })
+    .then('I should see the "$fieldName" field empty', function(fieldName, next) {
+      assert.notOk(
+        find(`#input-${dashify(fieldName)}`).val(),
+        `${fieldName} is empty`
+      );
+      next();
+    })
     .then('I should not be able to edit the "$fieldName" field', function(fieldName, next) {
       assert.ok(
         find(`#input-${dashify(fieldName)}`).prop('disabled'),
         `${fieldName} is disabled`
+      );
+      next();
+    })
+
+    .then('I should see a "$fieldName" validation error', function(fieldName, next) {
+      assert.ok(
+        find(`#error-input-${dashify(fieldName)}-0`).text(),
+        `${fieldName} is invalid`
       );
       next();
     })

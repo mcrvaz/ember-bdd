@@ -48,6 +48,7 @@
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "dependencies": {
+    "cpf_cnpj": "^0.2.0",
     "dashify": "^0.2.2"
   }
 }
