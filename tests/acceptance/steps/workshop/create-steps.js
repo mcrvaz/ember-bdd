@@ -11,7 +11,7 @@ export default function(assert) {
       next();
     })
     .then('I should not see a message saying "Dados coletados da Receita Federal"', function(next) {
-      assert.notOk(find('#query-sucess-message').text());
+      assert.notOk(find('#query-success-message').text());
       next();
     })
   // .then('I see a workshop with "Nome" equal to "$value"', function(value, next) {
