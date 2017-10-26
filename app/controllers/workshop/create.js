@@ -12,11 +12,12 @@ export default Controller.extend({
         message: 'CNPJ inválido.',
         validate: cnpjValidator.isValid
     }],
+    cnpjValidationErrors: [],
     actions: {
         create() {
             this.get('model')
                 .save()
-                .then(() => { this.transitionToRoute("/workshop"); });
+                .then(() => { this.transitionToRoute("/workshop") });
         },
         queryCNPJ(cnpj) {
             if(!cnpjValidator.isValid(cnpj)) return;
@@ -25,6 +26,10 @@ export default Controller.extend({
                 data: { cnpj: cnpj }
             }).then(res => {
                 const model = this.get('model');
+                if(res['error']) {
+                    this.set('cnpjValidationErrors', [res['error']]);
+                    return;
+                }
                 model.set('tradeName', res['nome-fantasia']);
                 model.set('companyName', res['razao-social']);
                 model.set('address', res['endereco']);

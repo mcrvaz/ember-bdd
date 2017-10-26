@@ -61,6 +61,13 @@ export default function(assert) {
       );
       next();
     })
+    .then('I should be able to edit the "$fieldName" field', function(fieldName, next) {
+      assert.notOk(
+        find(`#input-${dashify(fieldName)}`).prop('disabled'),
+        `${fieldName} is not disabled`
+      );
+      next();
+    })
 
     .then('I should see a "$fieldName" validation error', function(fieldName, next) {
       assert.ok(
@@ -69,6 +76,9 @@ export default function(assert) {
       );
       next();
     })
-
+    .then('I should see a "$fieldName" validation error saying "$text"', function(fieldName, text, next) {
+      assert.equal(find(`#error-input-${dashify(fieldName)}-0`).text().trim(), text);
+      next();
+    })
 
 }
