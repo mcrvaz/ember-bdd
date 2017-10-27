@@ -15,8 +15,13 @@
         errorMessages=(hash
             required="Campo obrigatório."
         )}}
-    {{form.input id="email" class="flex-30" label="E-mail"
-        value=model.email onChange=(action (mut model.email))}}
+    {{form.input id="email" type="email" class="flex-30" label="Email" icon="email"
+        value=model.email onChange=(action (mut model.email))
+        required=true
+        customValidations=emailValidation
+        errorMessages=(hash
+            required="Campo obrigatório."
+        )}}
 </div>
 <div class="layout layout-sm-column">
     {{form.input id="nome-fantasia" class="flex-30" label="Nome Fantasia"
@@ -28,7 +33,7 @@
 <div class="layout layout-sm-column">
     {{form.input id="endereco" class="flex-30" label="Endereço"
         value=model.address onChange=(action (mut model.address))}}
-    {{form.input id="telefone" class="flex-30" label="Telefone"
+    {{form.input id="telefone" class="flex-30" label="Telefone" icon="phone"
         value=model.phone onChange=(action (mut model.phone))}}
 </div>
 
@@ -37,10 +42,10 @@
         Salvar
     {{/form.submit-button}}
 
-    {{#link-to "workshop"}}
-        {{#paper-button id="back-button" raised="true"}}
+    {{#paper-button id="back-button" raised="true"}}
+        {{#link-to "workshop"}}
             Voltar
-        {{/paper-button}}
-    {{/link-to}}
+        {{/link-to}}
+    {{/paper-button}}
 </div>
 {{/paper-form}}

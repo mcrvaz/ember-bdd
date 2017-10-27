@@ -55,6 +55,32 @@ Feature: create workshop
     | 4477616400018      |
     ------------------------------------------------
 
+  Scenario: invalid email
+    Given I visit the "/workshop/create" page
+    When I fill the "Email" field with "[Email]"
+    Then I should see a "Email" validation error
+
+    Where:
+    ------------------------------------------------
+    | Email                                                                          |
+    | Abc.example.com                                                                |
+    | A@b@c@example.com                                                              |
+    | 1234567890123456789012345678901234567890123456789012345678901234+x@example.com |
+    ------------------------------------------------
+
+  Scenario: valid email
+    Given I visit the "/workshop/create" page
+    When I fill the "Email" field with "[Email]"
+    Then I should not see a "Email" validation error
+
+    Where:
+    ------------------------------------------------
+    | Email                                          |
+    | very.common@example.com                        |
+    | disposable.style.email.with+symbol@example.com |
+    | x@example.com                                  |
+    ------------------------------------------------
+
 
   Scenario: empty form
     Given I visit the "/workshop/create" page

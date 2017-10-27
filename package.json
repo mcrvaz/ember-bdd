@@ -41,6 +41,7 @@
     "ember-paper": "^1.0.0-beta.3",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.16.0",
+    "ember-text-mask": "^6.1.0",
     "ember-welcome-page": "^3.0.0",
     "loader.js": "^4.2.3"
   },
@@ -49,6 +50,7 @@
   },
   "dependencies": {
     "cpf_cnpj": "^0.2.0",
-    "dashify": "^0.2.2"
+    "dashify": "^0.2.2",
+    "email-validator": "^1.1.1"
   }
 }

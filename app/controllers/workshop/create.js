@@ -1,8 +1,10 @@
 import { inject as service } from '@ember/service';
 import CNPJValidator from '../../validators/cnpj';
+import EmailValidator from '../../validators/email';
 import Controller from '@ember/controller';
 
 const cnpjValidator = CNPJValidator.create();
+const emailValidator = EmailValidator.create();
 
 export default Controller.extend({
     ajax: service('ajax'),
@@ -11,6 +13,10 @@ export default Controller.extend({
     cnpjValidation: [{
         message: 'CNPJ inválido.',
         validate: cnpjValidator.isValid
+    }],
+    emailValidation: [{
+        message: 'Email inválido.',
+        validate: emailValidator.isValid
     }],
     cnpjValidationErrors: [],
     actions: {

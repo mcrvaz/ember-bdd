@@ -80,5 +80,12 @@ export default function(assert) {
       assert.equal(find(`#error-input-${dashify(fieldName)}-0`).text().trim(), text);
       next();
     })
+    .then('I should not see a "$fieldName" validation error', function(fieldName, next) {
+      assert.notOk(
+        find(`#error-input-${dashify(fieldName)}-0`).text(),
+        `${fieldName} is valid`
+      );
+      next();
+    })
 
 }
