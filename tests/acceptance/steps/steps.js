@@ -47,6 +47,13 @@ export default function(assert) {
       );
       next();
     })
+    .then('I should see the "$fieldName" field filled with "$message"', function(fieldName, message, next) {
+      assert.equal(
+        find(`#input-${dashify(fieldName)}`).val(),
+        message
+      );
+      next();
+    })
     .then('I should see the "$fieldName" field empty', function(fieldName, next) {
       assert.notOk(
         find(`#input-${dashify(fieldName)}`).val(),

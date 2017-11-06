@@ -6,8 +6,8 @@
 {{#paper-form onSubmit=(action "create") as |form|}}
 <div class="layout layout-sm-column">
     {{form.input id="cnpj" class="flex-30" label="CNPJ"
-        value=model.cnpj onChange=(action (mut model.cnpj))
-        onBlur=(action "queryCNPJ" model.cnpj)
+        value=cnpj onChange=(action (mut cnpj))
+        onBlur=(action "queryCNPJ" cnpj)
         disabled=disableChanges
         customValidations=cnpjValidation
         required=true
@@ -16,7 +16,7 @@
             required="Campo obrigatório."
         )}}
     {{form.input id="email" type="email" class="flex-30" label="Email" icon="email"
-        value=model.email onChange=(action (mut model.email))
+        value=email onChange=(action (mut email))
         required=true
         customValidations=emailValidation
         errorMessages=(hash
@@ -25,16 +25,16 @@
 </div>
 <div class="layout layout-sm-column">
     {{form.input id="nome-fantasia" class="flex-30" label="Nome Fantasia"
-        value=model.tradeName onChange=(action (mut model.tradeName))}}
+        value=tradeName onChange=(action (mut tradeName))}}
     {{form.input id="razao-social" class="flex-30" label="Razão Social"
-        value=model.companyName onChange=(action (mut model.companyName))
+        value=companyName onChange=(action (mut companyName))
         disabled=disableChanges}}
 </div>
 <div class="layout layout-sm-column">
     {{form.input id="endereco" class="flex-30" label="Endereço"
-        value=model.address onChange=(action (mut model.address))}}
-    {{form.input id="telefone" class="flex-30" label="Telefone" icon="phone"
-        value=model.phone onChange=(action (mut model.phone))}}
+        value=address onChange=(action (mut address))}}
+    {{form.input phone-number-input id="telefone" class="flex-30" label="Telefone" icon="phone"
+        value=phone onChange=(action (mut phone))}}
 </div>
 
 <div class="layout-row">

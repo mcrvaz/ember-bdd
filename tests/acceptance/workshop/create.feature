@@ -18,7 +18,7 @@ Feature: create workshop
     # And I see a workshop with "Nome" equal to "[Nome]"
     # And I see the same workshop with "CNPJ" equal to "[CNPJ]"
 
-  Scenario: filling the form with valid cnpj
+  Scenario: filling the form with nonexistant cnpj
 
     Given I visit the "/workshop/create" page
     When I fill the "CNPJ" field with "72.439.173/0001-11" #does not exist
@@ -31,11 +31,6 @@ Feature: create workshop
     And I should see the "Email" field empty
     Then I should be able to edit the "CNPJ" field
     And I should be able to edit the "Razao Social" field
-    # When I click on the "Create" button
-    # Then I visit the "workshop" page
-    # Then I look into the "workshop" list
-    # And I see a workshop with "Nome" equal to "[Nome]"
-    # And I see the same workshop with "CNPJ" equal to "[CNPJ]"
 
   Scenario: invalid cnpj
     Given I visit the "/workshop/create" page

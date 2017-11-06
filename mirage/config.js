@@ -8,6 +8,7 @@ export default function() {
   this.post('/workshops');
   this.get('/consulta-cnpj', (schema, request) => {
     const cnpj = request.queryParams.cnpj;
+    // console.log(cnpj);
     if(cnpj === "72.439.173/0001-11") {
       return {'error': 'CNPJ inexistente.'};
     }

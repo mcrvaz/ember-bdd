@@ -5,7 +5,7 @@ export default Route.extend({
         this._super(controller, model);
         controller.set("showQuerySuccess", false);
     },
-    model() {
-        return this.get('store').createRecord('workshop');
-    }
+    // model() {
+    //     return this.get('store').createRecord('workshop');
+    // }
 });
